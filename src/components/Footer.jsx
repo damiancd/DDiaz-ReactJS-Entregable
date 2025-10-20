@@ -8,8 +8,8 @@ const Footer = () => {
       <Container>
         <Row>
           <Col md={6}>
-            <p className="mb-0">Todo por 2 pesos</p>
-            <p className="mb-0">Avenida Siempre viva 742, Springfield</p>
+            <p className="mb-0">Todos los derechos reservados 2025.</p>
+            <p className="mb-0">Seguinos en nuestras redes</p>
           </Col>
           <Col md={6}>
             <div>

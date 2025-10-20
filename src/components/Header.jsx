@@ -11,10 +11,10 @@ const Header = () => {
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
           <img
             src="https://via.placeholder.com/40" 
-            alt="Logo"
+            alt="algo"
             className="d-inline-block align-top me-2"
           />
-          <span>MiSheina</span>
+          <span>Tienda Mi Sheina</span>
         </Navbar.Brand>
 
         <Nav className="ms-auto align-items-center">

@@ -4,7 +4,7 @@ import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
 const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Autenticando');
+    alert('Autenticado');
   };
 
   return (
