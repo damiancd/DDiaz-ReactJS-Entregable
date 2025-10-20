@@ -14,7 +14,7 @@ const Header = () => {
             alt="Logo"
             className="d-inline-block align-top me-2"
           />
-          <span>Todo por 2 pesos - Lo mejor de Capussoto</span>
+          <span>MiSheina</span>
         </Navbar.Brand>
 
         <Nav className="ms-auto align-items-center">
