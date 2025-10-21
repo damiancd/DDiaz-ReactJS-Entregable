@@ -10,7 +10,7 @@ const Header = () => {
       <Container>       
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
           <img
-            src="https://via.placeholder.com/40" 
+            src="https://via.placeholder.com/40"
             alt="algo"
             className="d-inline-block align-top me-2"
           />

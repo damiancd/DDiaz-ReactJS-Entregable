@@ -8,11 +8,11 @@ const Footer = () => {
       <Container>
         <Row>
           <Col md={6}>
-            <p className="mb-0">Todos los derechos reservados 2025.</p>
-            <p className="mb-0">Seguinos en nuestras redes</p>
+            <p className="mb-0">© 2025 - MiSheina - Todos los derechos reservados.</p>
           </Col>
           <Col md={6}>
             <div>
+              <p className="mb-0">Seguinos en nuestras redes</p>
               <a href="#" className="text-white me-3">
                 <i className="fa fa-facebook fa-2x"></i>
               </a>
