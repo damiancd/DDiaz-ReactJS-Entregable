@@ -7,7 +7,7 @@ import logo from '../assets/butterfly.png';
 
 const Header = () => {
   return (
-    <Navbar bg="primary" variant="dark" expand="lg" className="mb-4">
+    <Navbar bg="success" variant="dark" expand="lg" className="mb-4">
       <Container>       
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
           <img
