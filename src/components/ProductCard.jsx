@@ -24,7 +24,7 @@ const ProductCard = ({ product, agregarAlCarrito }) => {
           <strong>${product.price}</strong>
         </Card.Text>
         <Button variant="primary" onClick={() => agregarAlCarrito(product)}>
-          Al carrito
+          Al Carrito
         </Button>
       </Card.Body>
     </Card>

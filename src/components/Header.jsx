@@ -2,17 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import logo from '../assets/butterfly.png';
 
 const Header = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
+    <Navbar bg="primary" variant="dark" expand="lg" className="mb-4">
       <Container>       
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
           <img
-            src="https://via.placeholder.com/40"
+            src={logo}
             alt="algo"
             className="d-inline-block align-top me-2"
+            width="40"
+            height="40"
           />
           <span>Tienda Mi Sheina</span>
         </Navbar.Brand>
@@ -26,7 +29,8 @@ const Header = () => {
           
 
           <div className="d-flex align-items-center">
-            <Button variant="outline-light" as={Link} to="/administracion" className="me-2">
+            <Button variant="outline-light" as={Link} to="/administracion" className="me-2 d-flex align-items-center gap-2">
+              <FontAwesomeIcon icon={faUser} />
               Administración
             </Button>
             <Link to="/carrito" className="text-white">
