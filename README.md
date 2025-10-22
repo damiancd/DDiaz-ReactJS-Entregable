@@ -1,16 +1,49 @@
-# React + Vite
+# 🛍️ Tienda Mi Sheina
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto desarrollado en **React.js**, con integración a la API pública [FakeStore API](https://fakestoreapi.com/), para simular una tienda online con carrito de compras, navegación por categorías y panel de administración.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📚 **Descripción del Proyecto**
 
-## React Compiler
+El objetivo de este desarrollo es implementar una **aplicación de e-commerce básica** que permita:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Visualizar productos desde una API externa.
+- Agregar productos al carrito de compras.
+- Mostrar la cantidad de productos en el carrito en el encabezado.
+- Navegar entre distintas categorías usando **React Router**.
+- Administrar el estado global del carrito con **React Context API**.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ **Tecnologías Utilizadas**
+
+| Tecnología | Uso |
+|-------------|-----|
+| **React.js** | Framework principal |
+| **React Router DOM** | Navegación entre rutas |
+| **React Bootstrap** | Componentes y estilos |
+| **FontAwesome** | Íconos (carrito, usuario, etc.) |
+| **FakeStore API** | Fuente de datos de productos |
+| **Context API** | Manejo global del estado del carrito |
+
+---
+
+## 🏗️ **Estructura del Proyecto**
+src/
+├─ assets/
+│ └─ butterfly.png # Logo de la tienda
+├─ components/
+│ ├─ Header.jsx # Navbar con carrito
+│ ├─ Footer.jsx # Pie de página
+│ ├─ Home.jsx # Página principal
+│ ├─ Ofertas.jsx # Página de ofertas
+│ ├─ FromHer.jsx # Categoría para ella
+│ ├─ FromHim.jsx # Categoría para él
+│ ├─ Technology.jsx # Categoría de tecnología
+│ ├─ ProductList.jsx # Listado de productos con botón "Al carrito"
+│ ├─ ProductCard.jsx # Tarjeta individual de producto
+│ └─ Login.jsx # Página de administración
+├─ App.jsx # Configuración principal de rutas
+└─ main.jsx # Render principal de la aplicación
+---
