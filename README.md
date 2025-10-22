@@ -25,7 +25,6 @@ El objetivo de este desarrollo es implementar una **aplicación de e-commerce b�
 | **React Bootstrap** | Componentes y estilos |
 | **FontAwesome** | Íconos (carrito, usuario, etc.) |
 | **FakeStore API** | Fuente de datos de productos |
-| **Context API** | Manejo global del estado del carrito |
 
 ---
 
@@ -47,3 +46,41 @@ src/
 ├─ App.jsx # Configuración principal de rutas
 └─ main.jsx # Render principal de la aplicación
 ---
+
+🚀 Próximos pasos sugeridos
+
+Guardar productos en el carrito (no solo cantidad).
+→ Extender CartContext para almacenar un array de productos.
+
+Crear página /carrito.
+→ Mostrar los productos agregados, precios y permitir eliminar ítems.
+
+Persistencia local.
+→ Guardar el carrito en localStorage para mantenerlo tras recargar la página.
+
+Login funcional.
+→ Integrar autenticación simple en /administracion.
+
+Segurizar Rutas.
+→ securizar rutas para uso de autenticado.
+
+
+👨‍💻 Autor
+
+Curso: Talento Tech - Comision 25235 - React JS
+Responsable: Damian Diaz
+Stack: React.js, Node.js, API REST
+
+🗓️ Estado del Proyecto
+
+✅ Etapa 1 completada:
+
+Integración API
+
+Navegación por categorías
+
+
+🚧 Próxima etapa:
+
+Gestión de productos en carrito y persistencia de datos
+
