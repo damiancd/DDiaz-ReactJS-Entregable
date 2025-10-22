@@ -1,6 +1,6 @@
 {
   "name": "proyecto_ddiaz",
-  "homepage": "https://github.com/damiancd/DDiaz-ReactJS-Entregable.git",
+  "homepage": "https://github.com/damiancd/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
         
 
   },
