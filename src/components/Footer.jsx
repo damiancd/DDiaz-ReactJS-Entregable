@@ -8,7 +8,7 @@ const Footer = () => {
       <Container>
         <Row>
           <Col md={6}>
-            <p className="mb-0">© 2025 - MiSheina - Todos los derechos reservados.</p>
+            <p className="mb-0">Todos los derechos reservados © 2025 MiSheina.</p>
           </Col>
           <Col md={6}>
             <div>
