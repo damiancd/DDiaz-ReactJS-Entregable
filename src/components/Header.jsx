@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import { CartContext } from './CartContext';
 import logo from '../assets/butterfly.png';
 
 const Header = () => {
@@ -35,6 +36,10 @@ const Header = () => {
             </Button>
             <Link to="/carrito" className="text-white">
               <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+              {totalItems > 0 && (
+                <Badge pill bg="danger" className="position-absolute top-0 start-100 translate-middle">
+                  {totalItems}
+                </Badge>)}
             </Link>
           </div>
         </Nav>
