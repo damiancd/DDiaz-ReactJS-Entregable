@@ -19,7 +19,7 @@ const CrudProductos = () => {
   const [editId, setEditId] = useState(null);
 
 //fetch -->obtener los productos
-   const getProductos = () => {
+  const getProductos = () => {
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => setProductos(data))
@@ -34,7 +34,7 @@ const CrudProductos = () => {
   };
 
 //abrir el modal
-const handleShow = (producto) => {
+  const handleShow = (producto) => {
     setShow(true);
     if (producto) {
       setForm({
