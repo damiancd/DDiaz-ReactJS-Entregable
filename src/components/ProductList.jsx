@@ -8,13 +8,11 @@ const ProductList = ({ category = null }) =>{
   const [loading, setLoading] = useState(true);
   const { agregarAlCarrito } = useContext(CartContext);
 
-    useEffect(() => 
-    {
-    let url = 'https://690ba92e6ad3beba00f5d082.mockapi.io/api/productos';
-    if (category) 
-    {
-      url = `https://fakestoreapi.com/products/category/${category}`;
-    }
+    useEffect(() => {
+      let url = 'https://690ba92e6ad3beba00f5d082.mockapi.io/api/productos';
+      if (category){
+        url = `https://fakestoreapi.com/products/category/${category}`;
+      }
 
       fetch(url)
       .then((response) => response.json())
@@ -29,9 +27,9 @@ const ProductList = ({ category = null }) =>{
   }, [category]);
 
 
-    const handleAgregarAlCarrito = (product) => {
+    {/*const AgregarAlCarrito = (product) => {
     alert(`Producto ${product.title} agregado al carrito`);
-  };
+  };*/}
 
 
 
@@ -44,7 +42,7 @@ const ProductList = ({ category = null }) =>{
     <Row>
       {products.map((product) => (
         <Col md={4} key={product.id} className="mb-4">
-          <ProductCard product={product} agregarAlCarrito={handleAgregarAlCarrito} />
+          <ProductCard product={product} agregarAlCarrito={agregarAlCarrito} />
         </Col>
       ))}
     </Row>
