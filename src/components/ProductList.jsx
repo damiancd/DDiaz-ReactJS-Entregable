@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import ProductCard from './ProductCard';
+import { CartContext } from './CartContext';
 
-const ProductList = ({ category = null }) => 
-    {
+const ProductList = ({ category = null }) =>{
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const { agregarAlCarrito } = useContext(CartContext);
 
     useEffect(() => 
     {
-    let url = 'https://fakestoreapi.com/products';
+    let url = 'https://690ba92e6ad3beba00f5d082.mockapi.io/api/productos';
     if (category) 
     {
       url = `https://fakestoreapi.com/products/category/${category}`;

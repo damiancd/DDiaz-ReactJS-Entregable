@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Table, Button, Form, Modal } from "react-bootstrap";
 
 
-const API_URL="690ba92e6ad3beba00f5d082.mockapi.io/api/productos";
+const API_URL="http://690ba92e6ad3beba00f5d082.mockapi.io/api/productos";
 
 
 const CrudProductos = () => {
