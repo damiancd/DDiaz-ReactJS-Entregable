@@ -15,7 +15,7 @@ const CrudProductos = () => {
   });
 
   const [editId, setEditId] = useState(null);
-  const [errorMsg, setErrorMsg] = useState(""); // Nuevo: manejo de errores visual
+  const [errorMsg, setErrorMsg] = useState(""); // manejo de errores
 
   // Obtener productos
   const getProductos = () => {
@@ -46,7 +46,7 @@ const CrudProductos = () => {
     }
   };
 
-  // Crear o editar (CON MANEJO DE ERRORES NUEVO)
+  // Crear o editar
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg("");
@@ -83,11 +83,11 @@ const CrudProductos = () => {
       getProductos();
     } catch (error) {
       console.error("Error:", error.message);
-      setErrorMsg(error.message); // Mostrar error en pantalla
+      setErrorMsg(error.message); // Muestro error en pantalla
     }
   };
 
-  // Eliminar producto (con manejo de errores mejorado)
+  // Eliminar producto
   const eliminarProducto = async (id) => {
     if (!window.confirm("¿Seguro que quieres eliminar este producto?")) return;
 
@@ -99,7 +99,7 @@ const CrudProductos = () => {
       getProductos();
     } catch (error) {
       console.error("Error:", error.message);
-      alert(error.message); // mensaje visible para el usuario
+      alert(error.message); // muestro mensaje al usuario
     }
   };
 
