@@ -15,7 +15,7 @@ const CrudProductos = () => {
   });
 
   const [editId, setEditId] = useState(null);
-  const [errorMsg, setErrorMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState(""); // manejo de errores
 
   // Obtener productos
   const getProductos = () => {
@@ -51,16 +51,10 @@ const CrudProductos = () => {
     e.preventDefault();
     setErrorMsg("");
 
-    const autoImage =
-      form.image.trim() !== ""
-        ? form.image
-        : `https://picsum.photos/seed/${form.title}-${Date.now()}/300/300`;
-
     const productData = {
       ...form,
       price: Number(form.price),
       stock: Number(form.stock),
-      image: autoImage,
     };
 
     const method = editId ? "PUT" : "POST";
@@ -79,7 +73,8 @@ const CrudProductos = () => {
           errorData = await res.json();
         } catch {}
 
-        const mensaje = errorData?.message || "Error al guardar el producto.";
+        const mensaje =
+          errorData?.message || "Error al guardar el producto.";
         throw new Error(mensaje);
       }
 
@@ -88,7 +83,7 @@ const CrudProductos = () => {
       getProductos();
     } catch (error) {
       console.error("Error:", error.message);
-      setErrorMsg(error.message);
+      setErrorMsg(error.message); // Muestro error en pantalla
     }
   };
 
@@ -104,7 +99,7 @@ const CrudProductos = () => {
       getProductos();
     } catch (error) {
       console.error("Error:", error.message);
-      alert(error.message);
+      alert(error.message); // muestro mensaje al usuario
     }
   };
 
@@ -139,17 +134,17 @@ const CrudProductos = () => {
               <td>${Number(prod.price).toFixed(2)}</td>
               <td>{prod.stock}</td>
               <td>
-                <img
-                  src={
-                    prod.image?.startsWith("http")
-                      ? prod.image
-                      : `https://picsum.photos/seed/${prod.id}/100/100`
-                  }
-                  alt={prod.title}
-                  width={50}
-                  height={50}
-                  style={{ objectFit: "cover", borderRadius: "5px" }}
-                />
+                {prod.image?.startsWith("http") ? (
+                  <img
+                    src={prod.image}
+                    alt={prod.title}
+                    width={50}
+                    height={50}
+                    style={{ objectFit: "cover" }}
+                  />
+                ) : (
+                  <span>{prod.image}</span>
+                )}
               </td>
               <td>
                 <Button
@@ -228,11 +223,11 @@ const CrudProductos = () => {
             </Form.Group>
 
             <Form.Group className="mb-2">
-              <Form.Label>Imagen (URL) — opcional</Form.Label>
+              <Form.Label>Imagen (URL)</Form.Label>
               <Form.Control
                 value={form.image}
                 onChange={(e) => setForm({ ...form, image: e.target.value })}
-                placeholder="Dejar vacío para asignar imagen automática"
+                required
               />
             </Form.Group>
 

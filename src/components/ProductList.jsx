@@ -9,7 +9,7 @@ const ProductList = ({ category = null }) =>{
   const { agregarAlCarrito } = useContext(CartContext);
 
     useEffect(() => {
-      let url = 'https://690ba92e6ad3beba00f5d082.mockapi.io/api/productos';
+      let url = 'https://fakestoreapi.com/products'
       if (category){
         url = `https://fakestoreapi.com/products/category/${category}`;
       }
