@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Table, Button, Form, Modal } from "react-bootstrap";
 
-const API_URL = "https://690ba92e6ad3beba00f5d082.mockapi.io/api/productos";
+
+const API_URL="https://690ba92e6ad3beba00f5d082.mockapi.io/api/productos";
+
 
 const CrudProductos = () => {
   const [productos, setProductos] = useState([]);
@@ -15,9 +17,8 @@ const CrudProductos = () => {
   });
 
   const [editId, setEditId] = useState(null);
-  const [errorMsg, setErrorMsg] = useState(""); // Nuevo: manejo de errores visual
 
-  // Obtener productos
+//fetch -->obtener los productos
   const getProductos = () => {
     fetch(API_URL)
       .then((res) => res.json())
@@ -25,15 +26,14 @@ const CrudProductos = () => {
       .catch((error) => console.error("Error al obtener productos:", error));
   };
 
-  // Cerrar modal
+//cerrar el modal 
   const handleClose = () => {
     setShow(false);
     setForm({ title: "", description: "", price: "", stock: "", image: "" });
     setEditId(null);
-    setErrorMsg("");
   };
 
-  // Abrir modal
+//abrir el modal
   const handleShow = (producto) => {
     setShow(true);
     if (producto) {
@@ -46,10 +46,9 @@ const CrudProductos = () => {
     }
   };
 
-  // Crear o editar (CON MANEJO DE ERRORES NUEVO)
-  const handleSubmit = async (e) => {
+  //crear o editar
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setErrorMsg("");
 
     const productData = {
       ...form,
@@ -57,57 +56,48 @@ const CrudProductos = () => {
       stock: Number(form.stock),
     };
 
-    const method = editId ? "PUT" : "POST";
-    const url = editId ? `${API_URL}/${editId}` : API_URL;
+const method = editId ? "PUT" : "POST";
+const url = editId ? `${API_URL}/${editId}` : API_URL;
 
-    try {
-      const res = await fetch(url, {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(productData),
-      });
+//https://69092b082d902d0651b2df36.mockapi.io/productos/10
+//method: "PUT"
+//"Price":1500, "Title":"campera"......
 
-      if (!res.ok) {
-        let errorData = {};
-        try {
-          errorData = await res.json();
-        } catch {}
-
-        const mensaje =
-          errorData?.message || "Error al guardar el producto.";
-        throw new Error(mensaje);
-      }
-
-      await res.json();
-      handleClose();
-      getProductos();
-    } catch (error) {
-      console.error("Error:", error.message);
-      setErrorMsg(error.message); // Mostrar error en pantalla
-    }
+    fetch(url, {
+      method: method,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(productData),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Error al guardar el producto");
+        return res.json();
+      })
+      .then(() => {
+        handleClose();
+        getProductos();
+      })
+      .catch((error) => console.error("Error:", error));
   };
 
-  // Eliminar producto (con manejo de errores mejorado)
-  const eliminarProducto = async (id) => {
+
+  //Eliminar:
+const eliminarProducto = (id) => {
     if (!window.confirm("¿Seguro que quieres eliminar este producto?")) return;
 
-    try {
-      const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
-
-      if (!res.ok) throw new Error("Error al eliminar el producto");
-
-      getProductos();
-    } catch (error) {
-      console.error("Error:", error.message);
-      alert(error.message); // mensaje visible para el usuario
-    }
+    fetch(`${API_URL}/${id}`, { method: "DELETE" })
+      .then((res) => {
+        if (!res.ok) throw new Error("Error al eliminar el producto");
+        getProductos();
+      })
+      .catch((error) => console.error("Error:", error));
   };
 
-  // Cargar productos al inicio
-  useEffect(() => {
+  //cargar los productos
+    useEffect(() => {
     getProductos();
   }, []);
 
+  
   return (
     <div className="container mt-4">
       <h2>CRUD de Productos</h2>
@@ -167,16 +157,12 @@ const CrudProductos = () => {
         </tbody>
       </Table>
 
-      {/* Modal */}
+      {/* Modal de agregar / editar */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{editId ? "Editar" : "Agregar"} Producto</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {errorMsg && (
-            <div className="alert alert-danger py-2">{errorMsg}</div>
-          )}
-
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-2">
               <Form.Label>Título</Form.Label>
