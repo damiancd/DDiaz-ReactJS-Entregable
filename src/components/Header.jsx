@@ -4,7 +4,7 @@ import { Navbar, Nav, Container, Button, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from './CartContext';
-import logo from '../assets/butterfly.png';
+import logo from '/butterfly.png';
 
 const Header = () => {
   const { carrito } = useContext(CartContext);
