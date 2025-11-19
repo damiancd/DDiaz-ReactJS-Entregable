@@ -26,13 +26,6 @@ const ProductList = ({ category = null }) =>{
       });
   }, [category]);
 
-
-    {/*const AgregarAlCarrito = (product) => {
-    alert(`Producto ${product.title} agregado al carrito`);
-  };*/}
-
-
-
   if (loading) {
     return <div>Loading...</div>;
   }  
