@@ -1,12 +1,22 @@
-import React, { useContext } from 'react';
-import { Container, Table, Button, Form } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
+import { Container, Table, Button, Form, Toast, ToastContainer } from 'react-bootstrap';
 import { CartContext } from './CartContext';
 
 const Carrito = () => {
   const { carrito, setCarrito } = useContext(CartContext);
 
+  // Estados para toasts
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+
+  const triggerToast = (msg) => {
+    setToastMessage(msg);
+    setShowToast(true);
+  };
+
   const eliminarDelCarrito = (id) => {
     setCarrito(prev => prev.filter(producto => producto.id !== id));
+    triggerToast("Producto eliminado del carrito");
   };
 
   const cambiarCantidad = (id, nuevaCantidad) => {
@@ -20,6 +30,7 @@ const Carrito = () => {
   const vaciarCarrito = () => {
     if (window.confirm("¿Seguro que quieres vaciar todo el carrito?")) {
       setCarrito([]);
+      triggerToast("Carrito vaciado correctamente");
     }
   };
 
@@ -32,6 +43,20 @@ const Carrito = () => {
     return (
       <Container className="mt-4">
         <h3>Tu carrito está vacío</h3>
+
+         {/* Toast visible aunque esté vacío */}
+        <ToastContainer position="bottom-end" className="p-3">
+          <Toast
+            bg="success"
+            onClose={() => setShowToast(false)}
+            show={showToast}
+            delay={2000}
+            autohide
+          >
+            <Toast.Body className="text-white">{toastMessage}</Toast.Body>
+          </Toast>
+        </ToastContainer>
+
       </Container>
     );
   }
@@ -91,6 +116,19 @@ const Carrito = () => {
           Vaciar carrito
         </Button>
       </div>
+
+       {/* TOASTS */}
+      <ToastContainer position="bottom-end" className="p-3">
+        <Toast
+          bg="success"
+          onClose={() => setShowToast(false)}
+          show={showToast}
+          delay={2000}
+          autohide
+        >
+          <Toast.Body className="text-white">{toastMessage}</Toast.Body>
+        </Toast>
+      </ToastContainer>
 
     </Container>
   );

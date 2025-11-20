@@ -1,5 +1,6 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Header from './components/Header';
 import Home from './components/Home';
 import Ofertas from './components/Ofertas';
@@ -28,7 +29,9 @@ function App() {
             <Route path="/carrito" element={<Carrito />} />
             <Route path="/crud" element={<CrudProductos />} />
           </Routes>
+            <ToastContainer position="top-right" autoClose={1000} />
           <Footer/>
+          
         </Router>
       </CartProvider>
   )

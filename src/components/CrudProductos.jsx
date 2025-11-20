@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Table, Button, Form, Modal } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 const API_URL = "https://690ba92e6ad3beba00f5d082.mockapi.io/api/productos";
 
@@ -84,6 +85,14 @@ const CrudProductos = () => {
       }
 
       await res.json();
+
+      // ⭐ TERNARIO: mensaje según acción realizada
+      toast.success(
+        editId
+          ? "Producto actualizado con éxito"
+          : "Producto agregado con éxito"
+      );
+
       handleClose();
       getProductos();
     } catch (error) {
@@ -101,10 +110,12 @@ const CrudProductos = () => {
 
       if (!res.ok) throw new Error("Error al eliminar el producto");
 
+      toast.error("Producto eliminado");
+
       getProductos();
     } catch (error) {
       console.error("Error:", error.message);
-      alert(error.message);
+      toast.error(error.message);
     }
   };
 
