@@ -47,7 +47,7 @@ src/
 │ ├─ ProductCard.jsx # Tarjeta individual de producto
 │ ├─ Login.jsx # Página de administración
 │ ├─ CrudProductos.jsx # ABM de productos
-│ ├─ CartContext.jsx # Manejo del contexto de productos.
+│ ├─ CartContext.jsx # Manejo del contexto para gestion de productos en el carrito.
 │ └─ Carrito.jsx # administración del contenido del mismo.
 ├─ App.jsx # Configuración principal de rutas
 └─ main.jsx # Render principal de la aplicación
