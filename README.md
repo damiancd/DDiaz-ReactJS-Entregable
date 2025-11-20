@@ -1,73 +1,137 @@
 # 🛍️ Tienda Mi Sheina
 
-Proyecto desarrollado en **React.js**, con integración a la API pública [FakeStore API](https://fakestoreapi.com/), para simular una tienda online con carrito de compras, navegación por categorías y panel de administración.
+Aplicación web desarrollada en **React.js**, que simula una tienda
+online con navegación por categorías, carrito de compras, y módulo de
+administración con CRUD, utilizando datos obtenidos desde **FakeStore
+API** y **MockAPI**.
 
----
+Deploy del proyecto: *(GitHub Pages usando HashRouter)*
 
-## 📚 **Descripción del Proyecto**
+------------------------------------------------------------------------
 
-El objetivo de este desarrollo es implementar una **aplicación de e-commerce básica** que permita:
+## 📚 Descripción del Proyecto
 
-- Visualizar productos desde una API externa.
-- Agregar productos al carrito de compras.
-- Mostrar la cantidad de productos en el carrito en el encabezado.
-- Navegar entre distintas categorías usando **React Router**.
-- Administrar el estado global del carrito con **React Context API**.
+Este proyecto fue desarrollado como parte del curso **Talento Tech --
+Comisión 25235 (React.js)**, con el objetivo de implementar un
+**e-commerce funcional** que permita:
 
----
+-   Visualizar productos obtenidos desde APIs externas.
+-   Agregar productos al carrito con manejo de cantidades.
+-   Mostrar la cantidad total en el ícono del carrito (Header).
+-   Navegar entre categorías usando **React Router + HashRouter**
+    (necesario para GitHub Pages).
+-   Administrar el estado global del carrito mediante **React Context
+    API**.
+-   Realizar operaciones CRUD sobre productos consumiendo **MockAPI**.
 
-## ⚙️ **Tecnologías Utilizadas**
+------------------------------------------------------------------------
 
-| Tecnología | Uso |
-|-------------|-----|
-| **React.js** | Framework principal |
-| **React Router DOM** | Navegación entre rutas |
-| **React Bootstrap** | Componentes y estilos |
-| **FontAwesome** | Íconos (carrito, usuario, etc.) |
-| **FakeStore API** | Fuente de datos de productos |
-| **MockApi** | Api de productos para CRUD |
-| **GitHub** | versionado de proyecto|
-| **GitHub Pages** | Publicación del sitio|
+## ⚙️ Tecnologías Utilizadas
 
----
+  -----------------------------------------------------------------------
+  Tecnología                                       Uso
+  ------------------------------------------------ ----------------------
+  **React.js**                                     Framework principal
 
-## 🏗️ **Estructura del Proyecto**
-src/
-├─ assets/
-│ └─ butterfly.png # Logo de la tienda
-├─ components/
-│ ├─ Header.jsx # Navbar con carrito
-│ ├─ Footer.jsx # Pie de página
-│ ├─ Home.jsx # Página principal
-│ ├─ Ofertas.jsx # Página de ofertas
-│ ├─ FromHer.jsx # Categoría para ella
-│ ├─ FromHim.jsx # Categoría para él
-│ ├─ Technology.jsx # Categoría de tecnología
-│ ├─ ProductList.jsx # Listado de productos con botón "Al carrito"
-│ ├─ ProductCard.jsx # Tarjeta individual de producto
-│ ├─ Login.jsx # Página de administración
-│ ├─ CrudProductos.jsx # ABM de productos
-│ ├─ CartContext.jsx # Manejo del contexto para gestion de productos en el carrito.
-│ └─ Carrito.jsx # administración del contenido del mismo.
-├─ App.jsx # Configuración principal de rutas
-└─ main.jsx # Render principal de la aplicación
----
+  **Vite**                                         Entorno de desarrollo
 
-👨‍💻 Autor
+  **React Router DOM**                             Navegación entre rutas
+                                                   (HashRouter para
+                                                   deploy)
 
-Curso: Talento Tech - Comision 25235 - React JS
-Responsable: Damian Diaz
-Stack: React.js, Node.js, API REST
+  **React Bootstrap**                              Componentes UI
 
-🗓️ Estado del Proyecto
+  **FontAwesome**                                  Íconos
 
-✅ Etapa 1 completada:
+  **FakeStore API**                                Productos base de
+                                                   ejemplo
 
-Integración API
-Navegación por categorías
+  **MockAPI**                                      CRUD de productos
+
+  **GitHub / GitHub Pages**                        Versionado y hosting
+                                                   del proyecto
+  -----------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+## 🏗️ Estructura del Proyecto
+
+    src/
+    ├─ assets/
+    │  └─ butterfly.png        # Logo de la tienda
+    ├─ components/
+    │  ├─ Header.jsx            # Navbar + cantidad del carrito
+    │  ├─ Footer.jsx            # Pie de página
+    │  ├─ Home.jsx              # Página principal
+    │  ├─ Ofertas.jsx           # Categoría ofertas
+    │  ├─ FromHer.jsx           # Categoría "Para Ella"
+    │  ├─ FromHim.jsx           # Categoría "Para Él"
+    │  ├─ Technology.jsx        # Categoría tecnología
+    │  ├─ ProductList.jsx       # Listado general desde API
+    │  ├─ ProductCard.jsx       # Tarjeta individual
+    │  ├─ Login.jsx             # Login administrativo
+    │  ├─ CrudProductos.jsx     # ABM conectado a MockAPI
+    │  ├─ CartContext.jsx       # Contexto global del carrito
+    │  └─ Carrito.jsx           # Gestión del carrito y cantidades
+    ├─ App.jsx                  # Configuración de rutas (HashRouter)
+    └─ main.jsx                 # Render principal
+
+------------------------------------------------------------------------
+
+## 🔧 Configuración Importante
+
+### ✔️ Uso de HashRouter
+
+GitHub Pages no soporta historial tradicional, por eso la app usa:
+
+``` jsx
+import { HashRouter as Router } from "react-router-dom";
+```
+
+### ✔️ MockAPI HTTPS obligatorio
+
+Para evitar errores en producción:
+
+    const API_URL = "https://690ba92e6ad3beba00f5d082.mockapi.io/api/productos";
+
+### ✔️ Edición de cantidad dentro del carrito
+
+Funcionalidad agregada: modificar cantidad directamente en la tabla sin
+modal.
+
+------------------------------------------------------------------------
+
+## 🚀 Funcionalidades Principales
+
+-   Catálogo de productos por categoría\
+-   Carrito con manejo de cantidades\
+-   Cálculo automático del total\
+-   CRUD completo de productos (alta, edición, baja)\
+-   Login básico para acceder al panel\
+-   Integración con FakeStore y MockAPI\
+-   UI responsive
+
+------------------------------------------------------------------------
+
+## 🗓️ Estado del Proyecto
+
+### ✔️ Etapa 1 -- Completada
+
+-   Integración con APIs\
+-   Navegación por categorías\
+-   Renderizado dinámico de productos
+
+### ✔️ Etapa 2 -- Completada
+
+-   CRUD funcional (MockAPI)
+-   Carrito con contador y edición
 
 
-✅ Etapa 2 completada:
+------------------------------------------------------------------------
 
-CRUD de Productos Funcional.
-Carrito, muestra de cantidad y edición del mismo.
+## 👨‍💻 Autor
+
+**Curso:** Talento Tech\
+**Comisión:** 25235 -- React JS\
+**Responsable:** **Damian Diaz**\
+**Stack:** React.js -- Node.js -- REST API
