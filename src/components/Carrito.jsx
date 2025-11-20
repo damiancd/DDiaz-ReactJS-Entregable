@@ -17,6 +17,12 @@ const Carrito = () => {
     );
   };
 
+  const vaciarCarrito = () => {
+    if (window.confirm("¿Seguro que quieres vaciar todo el carrito?")) {
+      setCarrito([]);
+    }
+  };
+
   const total = carrito.reduce(
     (acc, item) => acc + Number(item.price) * item.cantidad,
     0
@@ -79,6 +85,13 @@ const Carrito = () => {
       <h5 className="text-end mt-3">
         Total a pagar: <strong>${total.toFixed(2)}</strong>
       </h5>
+
+      <div className="text-end mt-3">
+        <Button variant="outline-danger" onClick={vaciarCarrito}>
+          Vaciar carrito
+        </Button>
+      </div>
+
     </Container>
   );
 };
