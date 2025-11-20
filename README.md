@@ -25,6 +25,9 @@ El objetivo de este desarrollo es implementar una **aplicación de e-commerce b�
 | **React Bootstrap** | Componentes y estilos |
 | **FontAwesome** | Íconos (carrito, usuario, etc.) |
 | **FakeStore API** | Fuente de datos de productos |
+| **MockApi** | Api de productos para CRUD |
+| **GitHub** | versionado de proyecto|
+| **GitHub Pages** | Publicación del sitio|
 
 ---
 
@@ -42,28 +45,13 @@ src/
 │ ├─ Technology.jsx # Categoría de tecnología
 │ ├─ ProductList.jsx # Listado de productos con botón "Al carrito"
 │ ├─ ProductCard.jsx # Tarjeta individual de producto
-│ └─ Login.jsx # Página de administración
+│ ├─ Login.jsx # Página de administración
+│ ├─ CrudProductos.jsx # ABM de productos
+│ ├─ CartContext.jsx # Manejo del contexto de productos.
+│ └─ Carrito.jsx # administración del contenido del mismo.
 ├─ App.jsx # Configuración principal de rutas
 └─ main.jsx # Render principal de la aplicación
 ---
-
-🚀 Próximos pasos sugeridos
-
-Guardar productos en el carrito (no solo cantidad).
-→ Extender CartContext para almacenar un array de productos.
-
-Crear página /carrito.
-→ Mostrar los productos agregados, precios y permitir eliminar ítems.
-
-Persistencia local.
-→ Guardar el carrito en localStorage para mantenerlo tras recargar la página.
-
-Login funcional.
-→ Integrar autenticación simple en /administracion.
-
-Segurizar Rutas.
-→ securizar rutas para uso de autenticado.
-
 
 👨‍💻 Autor
 
@@ -76,11 +64,10 @@ Stack: React.js, Node.js, API REST
 ✅ Etapa 1 completada:
 
 Integración API
-
 Navegación por categorías
 
 
-🚧 Próxima etapa:
+✅ Etapa 2 completada:
 
-Gestión de productos en carrito y persistencia de datos
-
+CRUD de Productos Funcional.
+Carrito, muestra de cantidad y edición del mismo.
